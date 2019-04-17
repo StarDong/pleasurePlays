@@ -1,5 +1,9 @@
 <template>
-    <div>首页</div>
+    <div>
+        <div>首页</div>
+        <x-button type="primary" action-type="button">submit</x-button>
+    </div>
+
 
 </template>
 <script>

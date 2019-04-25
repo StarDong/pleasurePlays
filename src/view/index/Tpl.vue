@@ -1,6 +1,7 @@
 <template>
     <div>
         <div>首页</div>
+        <span>我是小宝</span> 
         <x-button type="primary" action-type="button">submit</x-button>
     </div>
 </template>

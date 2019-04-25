@@ -1,24 +1,7 @@
-import {
-    XButton
-} from 'vux'
-import vue from 'vue'
+import { XButton } from 'vux'
+
 export default {
     components: {
         XButton
-    },
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-
-    },
-    created() {
-        document.title = ''
-    },
-    mounted() {
-
-
     }
-};
+}

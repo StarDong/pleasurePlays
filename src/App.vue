@@ -8,15 +8,15 @@
 
 <script>
 export default {
-  name: 'App'
+    name: 'App'
 }
 </script>
 
 <style lang="less">
-    body {  
-        -webkit-text-size-adjust: 100% !important;  
-        text-size-adjust: 100% !important;  
-        -moz-text-size-adjust: 100% !important;  
+    body {
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+        -moz-text-size-adjust: 100% !important;
     }
     .router-fade-enter-active,
     .router-fade-leave-active {

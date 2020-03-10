@@ -148,7 +148,7 @@ export default {
             htmlContainer.style = `
                               text-align: left;
                               padding: 15px;
-                              font-size: 16px; 
+                              font-size: 16px;
                             `
             htmlContainer.innerHTML = html.innerHTML
             htmlContainerParent.appendChild(htmlContainer)

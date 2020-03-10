@@ -170,6 +170,7 @@ export default {
             if (!valueArgument) {
                 valueArgument = null
             }
+            console.log(valueArgument)
             document.execCommand(commandName, false, valueArgument)
         },
         setImage: function (evt) {

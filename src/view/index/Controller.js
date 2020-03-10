@@ -1,4 +1,5 @@
 import { XButton } from 'vux'
+import VmEditor from '@/components/editor/vm-editor.vue'
 
 export default {
     data () {
@@ -7,6 +8,9 @@ export default {
         }
     },
     components: {
-        XButton
+        XButton,
+        VmEditor
+    },
+    methods: {
     }
 }

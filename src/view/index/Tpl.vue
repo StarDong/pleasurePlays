@@ -1,23 +1,28 @@
 <template>
-  <div class="home">
-    <div v-for="item in listData" class="content" :key="item">
-      <div class="up_content">
-        <div>
-          <p class="up_p">用Python+树莓派开发智能音箱</p>
-          <p class="down_p">2019-10-14 09:23:44</p>
+  <div>
+    <div class="home">
+      <div v-for="item in listData" class="content" :key="item">
+        <div class="up_content">
+          <div>
+            <p class="up_p">用Python+树莓派开发智能音箱</p>
+            <p class="down_p">2019-10-14 09:23:44</p>
+          </div>
+          <div>
+            <img src="../../../static/img/content.png" alt />
+          </div>
         </div>
-        <div>
-          <img src="../../../static/img/content.png" alt />
+        <div class="down_content">
+          <ul>
+            <li>Python</li>
+            <li>热门文章</li>
+          </ul>
         </div>
       </div>
-      <div class="down_content">
-        <ul>
-          <li>Python</li>
-          <li>热门文章</li>
-        </ul>
-      </div>
+      <!-- <x-button type="primary" action-type="button">submit</x-button> -->
     </div>
-    <!-- <x-button type="primary" action-type="button">submit</x-button> -->
+    <div>
+      <VmEditor width="100%" height="400px" @upload="showHtml"></VmEditor>
+    </div>
   </div>
 </template>
 <script>
@@ -41,7 +46,7 @@ export default controller
       position: absolute;
       left: 0;
       bottom: 86px;
-      background: #EEEEEE;
+      background: #eeeeee;
       width: 100%;
       height: 2px;
       -webkit-transform: scaleY(0.5);

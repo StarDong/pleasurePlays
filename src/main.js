@@ -4,12 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'lib-flexible/flexible'
-
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 Vue.config.productionTip = false
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
-
-/* eslint-disable no-new */
+Vue.use(mavonEditor)
+    /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,

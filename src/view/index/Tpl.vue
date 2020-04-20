@@ -20,8 +20,12 @@
       </div>
       <!-- <x-button type="primary" action-type="button">submit</x-button> -->
     </div>
-    <div>
+    <HelloMarkDown></HelloMarkDown>
+    <!-- <div>
       <VmEditor width="100%" height="400px" @upload="showHtml"></VmEditor>
+    </div> -->
+    <div id="main">
+      <mavon-editor v-model="value"/>
     </div>
   </div>
 </template>

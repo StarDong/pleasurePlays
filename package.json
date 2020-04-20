@@ -14,7 +14,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "highlight.js": "^9.18.1",
     "lib-flexible": "^0.3.2",
+    "marked": "^0.8.2",
+    "mavon-editor": "^2.8.3",
     "node-sass": "^4.13.1",
     "postcss-px2rem": "^0.3.0",
     "px2rem-loader": "^0.1.9",

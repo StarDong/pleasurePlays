@@ -5,21 +5,16 @@
   >
     <!--功能按钮区-->
     <div class="button_bar">
-      <span v-on:click="addBold"><B>B</B></span>
-      <!-- <span v-on:click="addUnderline"><B>U</B></span> -->
-      <span v-on:click="addItalic"><B>I</B></span>
+      <!-- <span v-on:click="addBold"><B>B</B></span>
+      <span v-on:click="addItalic"><B>I</B></span> -->
       <span v-on:click="addH1"><B>h1</B></span>
       <span v-on:click="addH2"><B>h2</B></span>
       <span v-on:click="addtext"><B>T</B></span>
-      <span v-on:click="addselect"><B>S </B></span>
-      <span v-on:click="addCode"><B>C</B></span>
-      <input
-        type="file"
-        accept="image/*"
-        @change="changeImage($event)"
-        ref="avatarInput"
-      />
-      <!-- <span v-on:click="addCode"><B>code</B></span> -->
+      <!-- <span v-on:click="addselect"><B>S </B></span> -->
+      <!-- <span v-on:click="addCode"><B>C</B></span> -->
+      <span v-on:click="roletype('left')"><B>L</B></span>
+      <span v-on:click="roletype('right')"><B>R</B></span>
+      <span v-on:click="insert"><B>IN</B></span>
     </div>
 
     <!--主要内容区-->
@@ -120,6 +115,58 @@ function a(){
         ""
       );
     },
+    roletype(type){
+      if(type=='left'){
+        this.changeSelectedText("<section data-direction='left'>--我是左侧对话--", "</section>");
+      }else{
+        this.changeSelectedText("<section data-direction='right'>--我是右侧对话--", "</section>");
+      }
+
+    },
+    //一键插入
+    insert(){
+      let dom = document.getElementsByClassName('markdowneditContent')[0].childNodes
+      let newArr = []
+      let json = []
+      // 过滤空文本标签
+      let roleType = '1'
+      for(let i=0;i<dom.length;i++){
+         try{
+             let obj = {}
+            if(dom[i].nodeName!= "#text"){
+               const nodeName = dom[i].nodeName
+                switch(nodeName){
+                  case 'SECTION':
+                    const dataValue = dom[i].getAttribute("data-direction")
+                    if(dataValue=='left'){
+                      roleType = '1'
+                    }else{
+                      roleType = '2'
+                    }
+                    continue;
+                  case 'BLOCKQUOTE':
+                    obj.type = 'text'
+                    obj.content = dom[i].innerText
+                    obj.roleType = roleType
+                    newArr.push(obj)
+                    continue;
+                  case 'H1':
+                    obj.type = 'h1'
+                    obj.content = dom[i].innerText
+                    obj.roleType = roleType
+                    newArr.push(obj)
+                    continue;
+                  
+                }
+            } else{
+            }   
+          }catch(e){
+              console.log(e)
+          }     
+      }
+      console.log('newArr',newArr)
+    },
+
     changeSelectedText(startString, endString) {
       let t = this.$refs.ref_md_edit;
       if (window.getSelection) {

@@ -85,7 +85,7 @@ export default {
       this.changeSelectedText("##  二级标题", "");
     },
     addtext() {
-      this.changeSelectedText(">段落文本", "");
+      this.changeSelectedText("> 段落文本", "");
     },
     changeImage() {
       this.changeSelectedText(
@@ -136,27 +136,23 @@ function a(){
             if(dom[i].nodeName!= "#text"){
                const nodeName = dom[i].nodeName
                 switch(nodeName){
-                  case 'SECTION':
-                    const dataValue = dom[i].getAttribute("data-direction")
-                    if(dataValue=='left'){
-                      roleType = '1'
-                    }else{
-                      roleType = '2'
-                    }
+                  case 'P':
+                    obj.type = 'text'
+                    obj.content = dom[i].innerText
+                    obj.roleType = '1'
+                    newArr.push(obj)
                     continue;
                   case 'BLOCKQUOTE':
                     obj.type = 'text'
                     obj.content = dom[i].innerText
-                    obj.roleType = roleType
+                    obj.roleType = '2'
                     newArr.push(obj)
                     continue;
                   case 'H1':
                     obj.type = 'h1'
                     obj.content = dom[i].innerText
-                    obj.roleType = roleType
                     newArr.push(obj)
                     continue;
-                  
                 }
             } else{
             }   
@@ -276,11 +272,21 @@ function a(){
 </style>
 <style lang="less">
 .markdowneditContent {
+  p{
+    padding: 20px 20px 44px;
+    background: #2e3251;
+    border-radius: 0 40px 40px 40px;
+    color: #fff;
+    margin: 20px;
+  }
   blockquote {
     padding: 20px 20px 44px;
     background: #2e3251;
-    border-radius: 0 16px 16px 16px;
+    border-radius: 40px 0px 40px 40px;
     color: #fff;
+    p{
+      padding:0;
+    }
   }
   p {
     img {
